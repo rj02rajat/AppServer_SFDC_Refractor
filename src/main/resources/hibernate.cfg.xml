@@ -1,0 +1,43 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="connection.url">jdbc:sqlserver://10.32.11.2:1433;DatabaseName=AadharVault;</property>
+        <property name="connection.username">appdbowner</property>
+        <property name="connection.password">pass#123</property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">1</property>
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <!-- Echo the SQL to stdout -->
+         <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- dbcp connection pool configuration -->
+        <property name="dbcp.initialSize">5</property>
+        <property name="dbcp.maxTotal">20</property>
+        <property name="dbcp.maxIdle">10</property>
+        <property name="dbcp.minIdle">5</property>
+        <property name="dbcp.maxWaitMillis">-1</property>
+        
+        <mapping class="com.ltfs.bean.Accounts"/>
+        <mapping class="com.ltfs.bean.Address__r_Bean"/>
+        <mapping class="com.ltfs.bean.Address__r_Records"/>
+        <mapping class="com.ltfs.bean.Application"/>
+        <mapping class="com.ltfs.bean.Dealer__r_Bean"/>
+        <mapping class="com.ltfs.bean.Documents"/>
+        <mapping class="com.ltfs.bean.Extended_Application__r_Bean"/>
+        <mapping class="com.ltfs.bean.ExtendedApplication"/>
+        <mapping class="com.ltfs.bean.Genesis__Account__r_Bean"/>
+        <mapping class="com.ltfs.bean.Genesis__CL_Product__r_Bean"/>
+        <mapping class="com.ltfs.bean.Genesis__Parties__r_Bean"/>
+        <mapping class="com.ltfs.bean.Genesis__Parties__r_Records"/>
+        <mapping class="com.ltfs.bean.JMSResponseBean"/>
+        <mapping class="com.ltfs.bean.Pre_Approved_Loan__r_Bean"/>
+    </session-factory>
+</hibernate-configuration>
